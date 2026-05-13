@@ -1,0 +1,22 @@
+export interface User {
+  id: number;
+  documentId: string;
+  username: string;
+  email: string;
+  provider: string;
+  confirmed: boolean;
+  blocked: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AuthResponse {
+  jwt: string;
+  user: User;
+}
+
+export interface AuthError {
+  status: number;
+  name: string;
+  message: string;
+}
