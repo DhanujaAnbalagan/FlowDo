@@ -1,6 +1,6 @@
 # FlowDo
 
-FlowDo is a professional, secure, and high-performance task management application built with a modern full-stack architecture. It leverages the power of **Next.js 16** for a blazing-fast frontend and **Strapi v5** for a robust, headless backend.
+A full-stack Todo application built with Next.js 16 and Strapi v5 featuring JWT authentication, protected routes, and user-specific task management built with a modern full-stack architecture. It leverages the power of **Next.js 16** for a blazing-fast frontend and **Strapi v5** for a robust, headless backend.
 
 ## 🚀 Features
 
