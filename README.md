@@ -1,6 +1,10 @@
 # FlowDo
 
+<<<<<<< HEAD
 A full-stack Todo application built with Next.js 16 and Strapi v5 featuring JWT authentication, protected routes, and user-specific task management.
+=======
+A full-stack Todo application built with Next.js 16 and Strapi v5 featuring JWT authentication, protected routes, and user-specific task management built with a modern full-stack architecture. It leverages the power of **Next.js 16** for a blazing-fast frontend and **Strapi v5** for a robust, headless backend.
+>>>>>>> 61606d1df53c9192b329bd414895c23c94368ea0
 
 ## 🚀 Features
 
