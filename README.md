@@ -14,6 +14,14 @@ A full-stack Todo application built with Next.js 16 and Strapi v5 featuring JWT 
 - Loading and Error States
 - Zustand-based State Management
 
+## 📸 Screenshots
+
+### Login Page
+![Login Page](frontend/public/screenshots/login.png)
+
+### Dashboard
+![Dashboard](frontend/public/screenshots/dashboard.png)
+
 ## 🛠️ Tech Stack
 
 ### Frontend
