@@ -94,7 +94,7 @@ Supports:
 - Tablet
 - Mobile
 
-## 👨💻 Author
+## 👨‍💻 Author
 **Dhanuja A**
 
 Built as part of a Full-Stack Engineering Internship Assignment.
