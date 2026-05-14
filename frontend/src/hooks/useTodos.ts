@@ -15,7 +15,9 @@ export const useTodos = () => {
     setError(null);
     try {
       const response = await todoService.getTodos(user.id);
-      setTodos(response.data);
+      // Strapi v5 returns { data: [...], meta: {...} }
+      // todoService.getTodos returns response.data from axios
+      setTodos(response.data || []);
     } catch (err: any) {
       setError(err.message || 'Failed to fetch todos');
     } finally {
@@ -31,8 +33,11 @@ export const useTodos = () => {
     if (!user) return;
     try {
       const response = await todoService.createTodo(title, user.id);
-      setTodos((prev) => [...prev, response.data]);
-      return response.data;
+      // Strapi v5 returns { data: { ... } }
+      // todoService.createTodo returns response.data from axios
+      const newTodo = response.data;
+      setTodos((prev) => [...prev, newTodo]);
+      return newTodo;
     } catch (err: any) {
       setError(err.message || 'Failed to create todo');
       throw err;
