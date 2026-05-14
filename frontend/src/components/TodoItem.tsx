@@ -10,7 +10,7 @@ interface TodoItemProps {
 
 export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
   return (
-    <div className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all group">
+    <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all group">
       <div className="flex items-center gap-4 flex-1">
         <button
           onClick={() => onToggle(todo.documentId, todo.isCompleted)}
@@ -28,7 +28,7 @@ export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
         </button>
         <span
           className={`text-lg transition-all ${
-            todo.isCompleted ? 'text-gray-400 line-through' : 'text-gray-700'
+            todo.isCompleted ? 'text-gray-400 dark:text-gray-500 line-through' : 'text-gray-700 dark:text-gray-200'
           }`}
         >
           {todo.title}

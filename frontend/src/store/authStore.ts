@@ -24,8 +24,10 @@ export const useAuthStore = create<AuthState>()(
         set({ user, jwt });
       },
       logout: () => {
-        Cookies.remove('jwt');
+        Cookies.remove('jwt', { path: '/' });
         set({ user: null, jwt: null });
+        // Clear everything to be safe
+        localStorage.removeItem('auth-storage');
       },
       setLoading: (loading) => set({ isLoading: loading }),
     }),

@@ -1,10 +1,10 @@
 import api from '@/lib/api';
-import { Todo, TodoListResponse, TodoResponse } from '@/types/todo';
+import { TodoListResponse, TodoResponse } from '@/types/todo';
 
 export const todoService = {
-  getTodos: async (userId: number) => {
+  getTodos: async () => {
     const response = await api.get<TodoListResponse>(
-      `/api/todos?filters[user][id][$eq]=${userId}&populate=*`
+      '/api/todos?populate=*'
     );
     return response.data;
   },

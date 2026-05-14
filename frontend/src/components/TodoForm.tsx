@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 interface TodoFormProps {
-  onAdd: (title: string) => Promise<any>;
+  onAdd: (title: string) => Promise<unknown>;
 }
 
 export default function TodoForm({ onAdd }: TodoFormProps) {
@@ -34,7 +34,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Add a new task..."
-        className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all shadow-sm"
+        className="flex-1 px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-xl text-gray-900 dark:text-white dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all shadow-sm"
         disabled={isSubmitting}
       />
       <button

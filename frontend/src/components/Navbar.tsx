@@ -11,6 +11,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -20,7 +21,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -31,10 +32,10 @@ export default function Navbar() {
           <div className="flex items-center">
             {mounted && user ? (
               <div className="flex items-center space-x-4">
-                <span className="text-gray-700">Hi, {user.username}</span>
+                <span className="text-gray-700 dark:text-gray-300">Hi, {user.username}</span>
                 <button
                   onClick={handleLogout}
-                  className="bg-white text-gray-700 px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50 transition-colors"
+                  className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                   Logout
                 </button>
@@ -43,7 +44,7 @@ export default function Navbar() {
               <div className="flex space-x-4">
                 <Link
                   href="/signin"
-                  className="text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50 transition-colors"
+                  className="text-gray-700 dark:text-gray-300 px-4 py-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   Sign In
                 </Link>

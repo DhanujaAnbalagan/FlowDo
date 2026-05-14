@@ -12,16 +12,17 @@ export default function DashboardPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <header className="mb-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">My Tasks</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">My Tasks</h1>
         {mounted && (
-          <p className="text-gray-500">
-            Welcome back, <span className="font-semibold text-indigo-600">{user?.username}</span>. 
+          <p className="text-gray-500 dark:text-gray-400">
+            Welcome back, <span className="font-semibold text-indigo-600 dark:text-indigo-400">{user?.username || 'User'}</span>. 
             You have {todos.filter(t => !t.isCompleted).length} pending tasks.
           </p>
         )}

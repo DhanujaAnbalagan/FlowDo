@@ -26,8 +26,22 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle generic errors here
-    const message = error.response?.data?.error?.message || 'Something went wrong';
+    const { response } = error;
+    
+    // Auto logout on 401 Unauthorized
+    if (response?.status === 401) {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { useAuthStore } = require('@/store/authStore');
+      useAuthStore.getState().logout();
+      window.location.href = '/signin';
+    }
+
+    // Log 400 errors for easier debugging
+    if (response?.status === 400) {
+      console.error('Bad Request API Error:', response.data?.error || response.data);
+    }
+
+    const message = response?.data?.error?.message || error.message || 'Something went wrong';
     return Promise.reject({ ...error, message });
   }
 );
