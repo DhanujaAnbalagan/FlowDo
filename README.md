@@ -1,121 +1,122 @@
-# FlowDo
+# FlowDo: Task Management Reimagined
 
-A full-stack Todo application built with Next.js 16 and Strapi v5 featuring JWT authentication, protected routes, and user-specific task management.
+FlowDo is a production-grade, full-stack task management application designed for speed, security, and seamless user experience. Built with a modern monorepo architecture, it leverages **Next.js 16** for a high-performance frontend and **Strapi v5** for a robust, secure backend.
 
-## 🚀 Features
+---
 
-- User Registration & Login
-- JWT-based Authentication
-- Protected Dashboard Routes
-- User-specific Todo Management
-- Create, Update, and Delete Todos
-- Persistent Login Sessions
-- Responsive Dashboard UI
-- Loading and Error States
-- Zustand-based State Management
+## 🌐 Live Demo
 
-## 📸 Screenshots
+- **Frontend Application**: [https://flow-do-frontend.vercel.app/](https://flow-do-frontend.vercel.app/)
+- **Backend Admin Panel**: [https://flowdo-production.up.railway.app/admin](https://flowdo-production.up.railway.app/admin)
 
-### Login Page
-![Login Page](frontend/public/screenshots/login.png)
+---
 
-### Dashboard
-![Dashboard](frontend/public/screenshots/dashboard.png)
+## 🚀 Key Features
 
-### Demo
-![FlowDo Demo](frontend/public/screenshots/demo.webp)
+- **Secure Authentication**: JWT-based registration and login system with encrypted password storage.
+- **Protected Routing**: Advanced middleware-based route guarding to ensure only authenticated users access the dashboard.
+- **Real-time CRUD**: Full Create, Read, Update, and Delete operations for tasks with immediate UI feedback.
+- **Data Isolation**: Backend-enforced ownership ensures users only see and manage their own tasks.
+- **Persistent Sessions**: Secure cookie-based session management that keeps you logged in across browser restarts.
+- **Premium UI/UX**: A responsive, dark-mode-first design built for clarity and efficiency on all devices.
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS
-- Zustand
-- Axios
-- js-cookie
+- **Framework**: Next.js 16 (App Router)
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS 4
+- **API Client**: Axios with Interceptors
+- **Auth Utils**: js-cookie
 
 ### Backend
-- Strapi v5
-- SQLite (Development)
-- JWT Authentication (Users & Permissions Plugin)
+- **Framework**: Strapi v5
+- **Database**: SQLite (Production-ready on Railway)
+- **API**: REST with Document Service integration
+- **Security**: JWT Authentication & Role-Based Access Control
+
+---
 
 ## 📦 Project Structure
 
 ```text
 FlowDo/
-├── frontend/
-│   ├── src/app/          # App Router pages
-│   ├── src/components/   # Reusable UI components
-│   ├── src/hooks/        # Custom hooks
-│   ├── src/store/        # Zustand state management
-│   ├── src/lib/          # Axios configuration
-│   └── src/proxy.ts      # Route protection
+├── frontend/             # Next.js Application
+│   ├── src/app/          # Pages & Routing
+│   ├── src/components/   # UI Components
+│   ├── src/store/        # Zustand Auth Store
+│   ├── src/lib/          # API & Middleware
+│   └── src/middleware.ts # Route Protection logic
 │
-├── backend/
-│   ├── src/api/todo/     # Todo collection type
-│   └── config/           # Strapi configuration
+├── backend/              # Strapi CMS
+│   ├── src/api/todo/     # Todo Collection Logic
+│   ├── config/           # Server & Database Config
+│   └── railway.json      # Deployment instructions
+│
+└── README.md             # Project Documentation
 ```
 
-## ⚙️ Getting Started
+---
 
-### Prerequisites
-- Node.js 20+
-- npm
+## ⚙️ Local Setup
 
-### Backend Setup
+### 1. Backend Setup
 ```bash
 cd backend
 npm install
 npm run develop
 ```
-Local Backend: `http://localhost:1337`
-Production Backend: `https://flowdo-production.up.railway.app`
+*Backend will run at `http://localhost:1337`*
 
-### Frontend Setup
+### 2. Frontend Setup
 Create `frontend/.env.local`:
 ```env
-NEXT_PUBLIC_STRAPI_URL=https://flowdo-production.up.railway.app
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
 ```
 
-Run frontend:
+Run the development server:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Local Frontend: `http://localhost:3000`
+*Frontend will run at `http://localhost:3000`*
+
+---
 
 ## 🚀 Deployment
 
-The project is configured for easy deployment:
-- **Frontend**: Deploy to **Vercel** (Root Directory: `frontend`)
-- **Backend**: Deploy to **Railway** or **Render**
+- **Frontend**: Deployed on **Vercel** utilizing a monorepo subfolder configuration.
+- **Backend**: Deployed on **Railway** with a specialized startup configuration for Strapi v5.
 
-### Vercel Monorepo Note
-This project uses a monorepo structure. In Vercel, set the **Root Directory** to `frontend` in your Project Settings to ensure automatic detection of the Next.js project.
+---
 
-## 🔐 Authentication & Security
-- JWT-based authentication
-- Protected routes using Next.js Proxy middleware
-- User-specific Todo filtering (Document Service enforced)
-- Persistent sessions using `token` cookies and Zustand
-- Environment variables for configuration
+## 🎬 Demo Flow
 
-## ✅ Todo Features
-- Create Todos
-- View Personal Todos
-- Toggle Completion Status
-- Delete Todos
-- Persistent Data After Refresh
+1.  **Landing Page**: Professional introduction with dynamic CTA buttons.
+2.  **Registration**: Create a new account with immediate auto-login.
+3.  **Dashboard**: Create, toggle completion, and delete tasks.
+4.  **Security Check**: Attempting to visit `/dashboard` while logged out triggers an automatic redirect to `/signin`.
+5.  **Persistence**: Log out and log back in to see your tasks exactly as you left them.
 
-## 📱 Responsive Design
-Supports Desktop, Tablet, and Mobile with a premium Dark Mode UI.
+---
+
+## 💡 Challenges Solved
+
+- **Monorepo Routing**: Successfully configured Vercel to treat the `frontend` subdirectory as the root for seamless production deployments.
+- **Middleware Architecture**: Implemented Next.js `middleware.ts` to provide a robust, server-side auth layer that works reliably in production environments.
+- **Railway Stability**: Resolved complex startup and healthcheck issues on Railway by implementing custom `railway.json` configurations for subfolder-based Strapi apps.
+
+---
 
 ## 👨‍💻 Author
-**Dhanuja A**
 
-Built as part of a Full-Stack Engineering Internship Assignment.
+**Dhanuja A**
+*Full-Stack Developer | Engineering Intern*
+
+---
 
 ## 📄 License
 This project was developed for educational and internship evaluation purposes.
