@@ -20,11 +20,11 @@ export const useAuthStore = create<AuthState>()(
       isLoading: false,
       setAuth: (user, jwt) => {
         // Set cookie for middleware
-        Cookies.set('jwt', jwt, { expires: 7, path: '/' }); // 7 days
+        Cookies.set('token', jwt, { expires: 7, path: '/' }); // 7 days
         set({ user, jwt });
       },
       logout: () => {
-        Cookies.remove('jwt', { path: '/' });
+        Cookies.remove('token', { path: '/' });
         set({ user: null, jwt: null });
         // Clear everything to be safe
         localStorage.removeItem('auth-storage');

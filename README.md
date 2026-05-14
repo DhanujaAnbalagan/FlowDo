@@ -69,12 +69,13 @@ cd backend
 npm install
 npm run develop
 ```
-Backend runs at: `http://localhost:1337`
+Local Backend: `http://localhost:1337`
+Production Backend: `https://flowdo-production.up.railway.app`
 
 ### Frontend Setup
 Create `frontend/.env.local`:
 ```env
-NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+NEXT_PUBLIC_STRAPI_URL=https://flowdo-production.up.railway.app
 ```
 
 Run frontend:
@@ -83,13 +84,22 @@ cd frontend
 npm install
 npm run dev
 ```
-Frontend runs at: `http://localhost:3000`
+Local Frontend: `http://localhost:3000`
+
+## 🚀 Deployment
+
+The project is configured for easy deployment:
+- **Frontend**: Deploy to **Vercel** (Root Directory: `frontend`)
+- **Backend**: Deploy to **Railway** or **Render**
+
+### Vercel Monorepo Note
+This project uses a monorepo structure. In Vercel, set the **Root Directory** to `frontend` in your Project Settings to ensure automatic detection of the Next.js project.
 
 ## 🔐 Authentication & Security
 - JWT-based authentication
 - Protected routes using Next.js Proxy middleware
-- User-specific Todo filtering
-- Persistent sessions using cookies and Zustand
+- User-specific Todo filtering (Document Service enforced)
+- Persistent sessions using `token` cookies and Zustand
 - Environment variables for configuration
 
 ## ✅ Todo Features
@@ -100,10 +110,7 @@ Frontend runs at: `http://localhost:3000`
 - Persistent Data After Refresh
 
 ## 📱 Responsive Design
-Supports:
-- Desktop
-- Tablet
-- Mobile
+Supports Desktop, Tablet, and Mobile with a premium Dark Mode UI.
 
 ## 👨‍💻 Author
 **Dhanuja A**
