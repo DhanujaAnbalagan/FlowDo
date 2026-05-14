@@ -54,7 +54,7 @@ export default function AuthForm({ type, onSubmit, isLoading, error }: AuthFormP
               required
               value={formData.username}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-900 dark:text-white dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
               placeholder="johndoe"
             />
           </div>
