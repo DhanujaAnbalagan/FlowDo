@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337',
+  baseURL: process.env.NEXT_PUBLIC_STRAPI_URL || 'https://flowdo-production.up.railway.app',
   headers: {
     'Content-Type': 'application/json',
   },
