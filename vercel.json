@@ -1,8 +1,9 @@
 {
   "version": 2,
-  "public": true,
-  "cleanUrls": true,
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/.next",
-  "installCommand": "npm install"
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/$1"
+    }
+  ]
 }
